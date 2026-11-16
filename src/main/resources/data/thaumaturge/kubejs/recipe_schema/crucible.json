@@ -1,0 +1,38 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "type": "item_stack",
+      "role": "output"
+    },
+    {
+      "name": "catalyst",
+      "type": "ingredient",
+      "role": "input"
+    },
+    {
+      "name": "aspects",
+      "type": "thaumjs:aspects"
+    },
+    {
+      "name": "research",
+      "type": "thaumjs:research",
+      "optional": {
+        "entry": "thaumaturge:first_steps"
+      },
+      "always_write": true
+    }
+  ],
+  "unique": [
+    "result"
+  ],
+  "constructors": [
+    {
+      "keys": [
+        "result",
+        "catalyst",
+        "aspects"
+      ]
+    }
+  ]
+}

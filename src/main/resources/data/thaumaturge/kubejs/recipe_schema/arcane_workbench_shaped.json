@@ -1,0 +1,55 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "type": "item_stack",
+      "role": "output"
+    },
+    {
+      "name": "pattern",
+      "type": {
+        "type": "list",
+        "component": "string"
+      }
+    },
+    {
+      "name": "key",
+      "type": {
+        "type": "pattern",
+        "component": "ingredient"
+      },
+      "role": "input"
+    },
+    {
+      "name": "vis",
+      "type": "int"
+    },
+    {
+      "name": "crystals",
+      "type": "thaumjs:aspects",
+      "optional": [],
+      "always_write": true
+    },
+    {
+      "name": "research",
+      "type": "thaumjs:research",
+      "optional": {
+        "entry": "thaumaturge:first_steps"
+      },
+      "always_write": true
+    }
+  ],
+  "unique": [
+    "result"
+  ],
+  "constructors": [
+    {
+      "keys": [
+        "result",
+        "pattern",
+        "key",
+        "vis"
+      ]
+    }
+  ]
+}

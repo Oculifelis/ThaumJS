@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="Oculifelis"
+credits="Thaumaturge by Leclowndu93150 and contributors. KubeJS by LatvianModder and contributors."
+description='''
+Adds KubeJS support for Thaumaturge. Scripts can add crucible, infusion and arcane workbench recipes, set item and mob aspects, add Infernal Furnace bonuses and write research entries.
+'''
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="[${neo_version},)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="thaumaturge"
+    type="required"
+    versionRange="${thaumaturge_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="kubejs"
+    type="required"
+    versionRange="${kubejs_version_range}"
+    ordering="AFTER"
+    side="BOTH"

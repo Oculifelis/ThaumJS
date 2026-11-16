@@ -1,0 +1,29 @@
+package com.thaumjs;
+
+import com.google.gson.JsonElement;
+import com.mojang.serialization.Codec;
+import dev.latvian.mods.kubejs.recipe.RecipeScriptContext;
+import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
+import dev.latvian.mods.kubejs.recipe.component.RecipeComponentType;
+import dev.latvian.mods.rhino.type.TypeInfo;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.ExtraCodecs;
+
+/** Recipe key type "thaumjs:research": the research entry (and optional stage) that unlocks a recipe. */
+public final class ResearchComponent implements RecipeComponent<JsonElement> {
+    public static final ResourceKey<RecipeComponentType<?>> TYPE =
+            RecipeComponentType.key(Identifier.fromNamespaceAndPath(ThaumJS.MOD_ID, "research"));
+    public static final ResearchComponent INSTANCE = new ResearchComponent();
+
+    @Override public ResourceKey<RecipeComponentType<?>> type() { return TYPE; }
+    @Override public Codec<JsonElement> codec() { return ExtraCodecs.JSON; }
+    @Override public TypeInfo typeInfo() { return TypeInfo.OBJECT; }
+
+    @Override
+    public JsonElement wrap(RecipeScriptContext cx, Object from) {
+        return Json.research(Json.of(cx.cx(), from));
+    }
+
+    @Override public String toString() { return "thaumjs:research"; }
+}

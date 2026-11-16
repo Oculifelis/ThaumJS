@@ -1,0 +1,53 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "type": "item_stack",
+      "role": "output"
+    },
+    {
+      "name": "catalyst",
+      "type": "ingredient",
+      "role": "input"
+    },
+    {
+      "name": "components",
+      "type": {
+        "type": "list",
+        "component": "ingredient"
+      },
+      "role": "input"
+    },
+    {
+      "name": "aspects",
+      "type": "thaumjs:aspects"
+    },
+    {
+      "name": "instability",
+      "type": "int",
+      "optional": 0,
+      "always_write": true
+    },
+    {
+      "name": "research",
+      "type": "thaumjs:research",
+      "optional": {
+        "entry": "thaumaturge:first_steps"
+      },
+      "always_write": true
+    }
+  ],
+  "unique": [
+    "result"
+  ],
+  "constructors": [
+    {
+      "keys": [
+        "result",
+        "catalyst",
+        "components",
+        "aspects"
+      ]
+    }
+  ]
+}

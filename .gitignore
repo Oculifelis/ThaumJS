@@ -1,0 +1,10 @@
+.gradle/
+build/
+run/
+libs/*.jar
+*.log
+.idea/
+out/
+/AGENTS.md
+/CLAUDE.md
+/DECISIONS.md
