@@ -1,0 +1,11 @@
+{
+  "keys": [
+    {"name": "result", "type": "item_stack", "role": "output"},
+    {"name": "target", "type": "block"},
+    {"name": "research", "type": "thaumjs:research", "optional": {"entry": "thaumaturge:first_steps"}, "always_write": true}
+  ],
+  "unique": ["result"],
+  "constructors": [
+    {"keys": ["result", "target"]}
+  ]
+}

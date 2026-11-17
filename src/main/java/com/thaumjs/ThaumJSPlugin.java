@@ -45,6 +45,10 @@ public class ThaumJSPlugin implements KubeJSPlugin {
                 Identifier rl = Identifier.parse(id);
                 gen.json(rl.withPath("thaumaturge/research_entry/" + rl.getPath()), json);
             });
+            e.categories.forEach((id, json) -> {
+                Identifier rl = Identifier.parse(id);
+                gen.json(rl.withPath("thaumaturge/research_category/" + rl.getPath()), json);
+            });
         }
     }
 

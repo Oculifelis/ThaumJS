@@ -11,6 +11,7 @@ import java.util.Map;
 /** ThaumJSEvents.research(e => { ... }) adds or replaces Thaumaturge research entries. */
 public class ResearchKubeEvent implements KubeEvent {
     final Map<String, JsonObject> entries = new LinkedHashMap<>();
+    final Map<String, JsonObject> categories = new LinkedHashMap<>();
 
     /** Starts a new entry, or replaces one with the same id. */
     public ResearchBuilder create(String id) {
@@ -23,5 +24,11 @@ public class ResearchKubeEvent implements KubeEvent {
     public void json(Context cx, String id, Object json) {
         JsonElement j = Json.of(cx, json);
         entries.put(Json.id(id), j.getAsJsonObject());
+    }
+
+    /** Adds a research category (a Thaumonomicon tab), or replaces one, from Thaumaturge's research_category format. */
+    public void category(Context cx, String id, Object json) {
+        JsonElement j = Json.of(cx, json);
+        categories.put(Json.id(id), j.getAsJsonObject());
     }
 }

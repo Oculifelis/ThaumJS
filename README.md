@@ -1,7 +1,8 @@
 # ThaumJS
 
-ThaumJS adds KubeJS support for Thaumaturge. Scripts can add crucible, infusion and arcane workbench recipes, set the
-aspects of items, tags and mobs, add Infernal Furnace bonus drops and write new research entries.
+ThaumJS adds KubeJS support for Thaumaturge. Scripts can add crucible, infusion, infusion enchantment, arcane workbench
+and salis mundus recipes, set the aspects of items, tags and mobs, add Infernal Furnace bonus drops and write new
+research entries and research tabs.
 
 Requires Thaumaturge 1.1.0 or newer and KubeJS 8 on NeoForge 26.1.2.
 
@@ -27,6 +28,15 @@ ServerEvents.recipes(function (e) {
 
   // result, ingredients, vis
   e.recipes.thaumaturge.arcane_workbench_shapeless('minecraft:apple', ['minecraft:stick', 'minecraft:dirt'], 5)
+
+  // enchantment, pedestal items, aspects, item shown in the recipe book (optional)
+  e.recipes.thaumaturge.infusion_enchantment('arcing', ['minecraft:enchanted_book', 'minecraft:redstone'],
+      { potentia: 20 }, 'minecraft:stone_sword')
+
+  // salis mundus on a block, a block tag or a multiblock blueprint
+  e.recipes.thaumaturge.dust_trigger_simple('minecraft:diamond_block', 'minecraft:coal_block')
+  e.recipes.thaumaturge.dust_trigger_tag('minecraft:emerald_block', 'minecraft:logs')
+  e.recipes.thaumaturge.dust_trigger_multiblock('minecraft:gold_block', 'thaumaturge:infernal_furnace')
 })
 ```
 
@@ -71,11 +81,20 @@ ThaumJSEvents.research(function (e) {
 
   // or Thaumaturge's own research_entry JSON as a plain object
   e.json('kubejs:raw_entry', { category: 'thaumaturge:basics', name: 'kubejs.research.raw', /* ... */ })
+
+  // a new Thaumonomicon tab, in Thaumaturge's research_category JSON
+  e.category('kubejs:my_tab', {
+    background: 'thaumaturge:textures/gui/gui_research_back_3_smooth.png',
+    formula: [{ aspect: 'thaumaturge:ordo', amount: 10 }],
+    icon: 'thaumaturge:textures/research/cat_alchemy.png',
+    index: 20
+  })
 })
 ```
 
 `create` with the id of an existing entry replaces that entry. Stages also take `obtain(item, amount)`,
-`requireResearch(id)` and `set(key, value)` for any other field.
+`requireResearch(id)` and `set(key, value)` for any other field. Changing one field of an existing entry without
+rewriting it is not supported yet. Write the whole entry with `create` or `json` instead.
 
 Everything set from scripts goes into the data pack KubeJS builds on each reload, so `/reload` picks up changes.
 

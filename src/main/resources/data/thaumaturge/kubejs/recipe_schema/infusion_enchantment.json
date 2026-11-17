@@ -1,0 +1,13 @@
+{
+  "keys": [
+    {"name": "enchantment", "type": "string"},
+    {"name": "components", "type": {"type": "list", "component": "ingredient"}, "role": "input"},
+    {"name": "aspects", "type": "thaumjs:aspects"},
+    {"name": "display_catalyst", "type": "ingredient", "optional": "minecraft:wooden_sword", "always_write": true},
+    {"name": "research", "type": "thaumjs:research", "optional": {"entry": "thaumaturge:first_steps"}, "always_write": true}
+  ],
+  "constructors": [
+    {"keys": ["enchantment", "components", "aspects"]},
+    {"keys": ["enchantment", "components", "aspects", "display_catalyst"]}
+  ]
+}
