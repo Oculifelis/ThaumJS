@@ -9,7 +9,7 @@ import net.minecraft.resources.Identifier;
 
 /**
  * Recipe schemas live in data/thaumaturge/kubejs/recipe_schema. This class adds the two key types they use and the
- * ThaumJSEvents group, whose results go into KubeJS's generated data pack (it loads after the mods).
+ * ThaumJSEvents group, whose results go into the data pack KubeJS builds (it loads after the mods).
  */
 public class ThaumJSPlugin implements KubeJSPlugin {
     @Override
